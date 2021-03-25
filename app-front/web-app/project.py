@@ -1,0 +1,1 @@
+# variation of blog.py from lab 5 tutorial
