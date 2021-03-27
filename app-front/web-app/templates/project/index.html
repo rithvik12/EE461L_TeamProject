@@ -1,1 +1,36 @@
+# variation of index.html from lab 5 tutorial
+# page displaying all projects
+
+# account - user account
+# project - user created project
+
 {% extends 'home.html' %}
+
+{% block header %}
+  <h1>{% block title %}Projects{% endblock %}</h1>
+  {% if g.user %}
+    # create new project option
+    <a class="action" href="{{ url_for('account.create') }}">New Project</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for project in projects %}
+    <article class="project">
+      <header>
+        <div>
+          <h1>{{ project['title'] }}</h1>
+          <div class="about">by {{ project['username'] }} on {{ project['created'].strftime('%Y-%m-%d') }}</div>
+        </div>
+        {% if g.user['id'] == project['author_id'] %}
+          # edit existing project option
+          <a class="action" href="{{ url_for('account.update', id=project['id']) }}">Edit</a>
+        {% endif %}
+      </header>
+      <p class="description">{{ project['description'] }}</p>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
