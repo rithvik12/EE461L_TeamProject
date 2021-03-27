@@ -1,1 +1,22 @@
+# variation of create.html from lab 5 tutorial
+# create project html page
+
+# project name - title
+
+# TODO: add HW set fields
+
 {% extends 'home.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Project{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="create">
+    <label for="title">Project Name</label>
+    <input name="title" id="title" value="{{ request.form['title'] }}" required>
+    <label for="description">Description</label>
+    <textarea name="description" id="description">{{ request.form['description'] }}</textarea>
+    <input type="submit" value="Save">
+  </form>
+{% endblock %}
