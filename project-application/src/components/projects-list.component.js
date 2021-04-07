@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+const Project = props => (
+    <tr>
+      <td>{props.project.username}</td>
+      <td>{props.project.description}</td>
+      <td>{props.project.duration}</td>
+      <td>{props.project.date.substring(0,10)}</td>
+      <td>
+        <Link to={"/edit/"+props.project._id}>edit</Link> | <a href="#" onClick={() => { props.deleteProject(props.project._id) }}>delete</a>
+      </td>
+    </tr>
+  )
+
 export default class ProjectsList extends Component {
     constructor(props) {
         super(props);
@@ -30,8 +42,8 @@ export default class ProjectsList extends Component {
 
       // iterates through list of project items by using map function
       projectList() {
-        return this.state.exercises.map(currentexercise => {
-          return <Exercise exercise={currentexercise} deleteExercise={this.deleteExercise} key={currentexercise._id}/>;
+        return this.state.projects.map(currentproject => {
+          return <Project project={currentproject} deleteProject={this.deleteProject} key={currentproject._id}/>;
         })
       }
 
