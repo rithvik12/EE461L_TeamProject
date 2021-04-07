@@ -20,10 +20,10 @@ connection.once('open', () => {
 })
 
 // load routers from other files
-const exercisesRouter = require('./routes/exercises');
+const projectsRouter = require('./routes/projects');
 const usersRouter = require('./routes/users');
 
-app.use('/exercises', exercisesRouter);
+app.use('/projects', projectsRouter);
 app.use('/users', usersRouter);
 
 app.listen(port, () => {
