@@ -27,10 +27,32 @@ export default class ProjectsList extends Component {
           projects: this.state.projects.filter(el => el._id !== id)
         })
       }
+
+      // iterates through list of project items by using map function
+      projectList() {
+        return this.state.exercises.map(currentexercise => {
+          return <Exercise exercise={currentexercise} deleteExercise={this.deleteExercise} key={currentexercise._id}/>;
+        })
+      }
+
   render() {
     return (
-      <div>
-        <p>You are on the Projects List component!</p>
+        <div>
+        <h3>Existing Projects</h3>
+        <table className="table">
+          <thead className="thead-light">
+            <tr>
+              <th>Username</th>
+              <th>Description</th>
+              <th>Duration</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            { this.projectList() }
+          </tbody>
+        </table>
       </div>
     )
   }
