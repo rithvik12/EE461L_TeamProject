@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Navbar from "./components/navbar.component.js"
-import ProjectsList from "./components/projects-list.component.js";
-import EditProject from "./components/edit-project.component.js";
-import CreateProject from "./components/create-project.component.js";
-import CreateUser from "./components/create-user.component.js";
+import Navbar from "./components/navbar.component"
+import ProjectsList from "./components/projects-list.component";
+import EditProject from "./components/edit-project.component";
+import CreateProject from "./components/create-project.component";
+import CreateUser from "./components/create-user.component";
 
 function App() {
   return (
