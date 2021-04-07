@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -64,6 +65,8 @@ export default class CreateProject extends Component {
     };
   
     console.log(project);
+
+    axios.post('http://localhost:5000/projects/add', project).then(res => console.log(res.data));
     
     window.location = '/';
   }
