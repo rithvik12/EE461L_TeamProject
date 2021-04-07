@@ -26,10 +26,11 @@ export default class CreateUser extends Component {
             password: e.target.value
         });
     }
-      onSubmit(e) {
+    onSubmit(e) {
         e.preventDefault();
         const newUser = {
           username: this.state.username,
+          password: this.state.password,
         };
         console.log(newUser);
 
@@ -38,8 +39,11 @@ export default class CreateUser extends Component {
         axios.post('http://localhost:5000/users/add', newUser).then(res => console.log(res.data));
         
         this.setState({
-          username: ''
-        })
+            username: '',
+            password: ''
+          })
+  
+          window.location = '/';
       }
   render() {
     return (
