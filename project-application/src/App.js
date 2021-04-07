@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Navbar from "./components/navbar.component"
-import ExercisesList from "./components/exercises-list.component";
-import EditExercise from "./components/edit-exercise.component";
-import CreateExercise from "./components/create-exercise.component";
-import CreateUser from "./components/create-user.component";
+import Navbar from "./components/navbar.component.js"
+import ProjectsList from "./components/projects-list.component.js";
+import EditProject from "./components/edit-project.component.js";
+import CreateProject from "./components/create-project.component.js";
+import CreateUser from "./components/create-user.component.js";
 
 function App() {
   return (
@@ -14,9 +14,9 @@ function App() {
       <div className="container">
         <Navbar />
         <br/>
-        <Route path="/" exact component={ExercisesList} />
-        <Route path="/edit/:id" component={EditExercise} />
-        <Route path="/create" component={CreateExercise} />
+        <Route path="/" exact component={ProjectsList} />
+        <Route path="/edit/:id" component={EditProject} />
+        <Route path="/create" component={CreateProject} />
         <Route path="/user" component={CreateUser} />
       </div>
     </Router>
