@@ -5,18 +5,23 @@ export default class EditHardware extends Component{
     constructor(props) {
         super(props);
 
-        this.onChangeProjectName = this.onChangeProjectName.bind(this);
-        this.onChangeAvailability = this.onChangeAvailability.bind(this);
-        this.onChangeCapacity = this.onChangeCapacity.bind(this);
-        this.onChangeCheckedIn = this.onChangeCheckedIn.bind(this);
-        this.onChangeCheckedOut = this.onChangeCheckedOut.bind(this);
+        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangeDescription = this.onChangeDescription.bind(this);
+        this.onChangeHW1Available = this.onChangeHW1Available.bind(this);
+        this.onChangeHW2Available = this.onChangeHW2Available.bind(this);
+        // this.onChangeCapacity = this.onChangeCapacity.bind(this);
+        // this.onChangeCheckedIn = this.onChangeCheckedIn.bind(this);
+        this.onChangeHW1CheckedOut = this.onChangeHW1CheckedOut.bind(this);
+        this.onChangeHW2CheckedOut = this.onChangeHW2CheckedOut.bind(this);
 
         this.state = {
-            projectName: '',
-            availability: 100,
-            capacity: 100,
-            checkedIn: 0,
-            checkedOut: 0
+            username: '',
+            hw1available: 100,
+            hw2available: 100,
+            // capacity: 100,
+            // checkedIn: 0,
+            hw1checkedOut: 0,
+            hw2checkedOut: 0
         }
     }
 
@@ -25,40 +30,58 @@ export default class EditHardware extends Component{
         .then(response => {
             if(response.data.length > 0) {
                 this.setState({
-                    projects: response.data.map(project => project.projectName),
+                    users: response.data.map(project => project.projectName),
                     projectName: response.data[0].projectName
                 });
             }
         })
     }
 
-    onChangeProjectName(e) {
+    onChangeUsername(e) {
         this.setStete({
-            projectName: e.target.value
+            username: e.target.value
         });
     }
 
-    onChangeAvailability(e) {
-        this.setState({
-            availability: e.target.value
+    onChangeDescription(e) {
+        this.setStete({
+            description: e.target.value
         });
     }
 
-    onChangeCapacity(e) {
+    onChangeHW1Available(e) {
         this.setState({
-            capacity: e.target.value
+            hw1available: e.target.value
         });
     }
 
-    onChangeCheckedIn(e) {
+    onChangeHW2Available(e) {
         this.setState({
-            checkedIn: e.target.value
+            hw2available: e.target.value
         });
     }
 
-    onChangeCheckedOut(e) {
+    // onChangeCapacity(e) {
+    //     this.setState({
+    //         capacity: e.target.value
+    //     });
+    // }
+
+    // onChangeCheckedIn(e) {
+    //     this.setState({
+    //         checkedIn: e.target.value
+    //     });
+    // }
+
+    onChangeHW1CheckedOut(e) {
         this.setState({
-            checkedOut: e.target.value
+            hw1checkedOut: e.target.value
+        });
+    }
+
+    onChangeHW2CheckedOut(e) {
+        this.setState({
+            hw2checkedOut: e.target.value
         });
     }
 
@@ -66,11 +89,13 @@ export default class EditHardware extends Component{
         e.preventDefault();
 
         const hardware = {
-            projectName: this.state.projectName,
-            availability: this.state.availability,
-            capacity: this.state.capacity,
-            checkedIn: this.state.checkedIn,
-            checkedOut: this.state.checkedOut,
+            username: this.state.username,
+            hw1available: this.state.hw1available,
+            hw2available: this.state.hw2available,
+            //capacity: this.state.capacity,
+            //checkedIn: this.state.checkedIn,
+            hw1checkedOut: this.state.hw1checkedOut,
+            hw2checkedOut: this.state.hw2checkedOut,
         };
 
         console.log(hardware);
