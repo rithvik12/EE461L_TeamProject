@@ -23,12 +23,11 @@ function App() {
         <Route path="/" exact component={ProjectsList} />
         <Route path="/edit-project/:id" component={EditProject} />
         <Route path="/create-project" component={CreateProject} />
-        <Route path="/user" component={CreateUser} />
+        <Route path="/create-user" component={CreateUser} />
         <Route path="/login" component={LoginUser} />
         <Route path="/hardware" component={ViewHardware} />
         <Route path="/dataset" component={ViewHardware} />
         <Route path="/edit-hardware" component={ViewHardware} />
-
       </div>
     </Router>
   );

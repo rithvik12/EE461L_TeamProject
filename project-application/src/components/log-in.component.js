@@ -74,7 +74,7 @@ export default class LoginUser extends Component {
           </div>
 
           <div className="form-group">
-             <Link to="/user" className="btn btn-primary">Create New User</Link>
+             <Link to="/create-user" className="btn btn-primary">Create New User</Link>
           </div>
 
         </form>
