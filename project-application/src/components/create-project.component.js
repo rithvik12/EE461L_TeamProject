@@ -116,7 +116,7 @@ export default class CreateProject extends Component {
                 type="text" 
                 className="form-control"
                 value={this.state.projectID}
-                onChange={this.onChangeprojectID}
+                onChange={this.onChangeProjectID}
                 />
           </div>
           <div className="form-group">
