@@ -7,3 +7,9 @@ router.route('/').get((reg, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/update/:id').post((req, res) => {
+    Hardware.findById(req.params.id)
+    .then(hardware => {
+        
+    })
+})
