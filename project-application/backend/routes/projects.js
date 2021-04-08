@@ -1,6 +1,7 @@
 const router = require('express').Router();
 let Project = require('../models/project.model');
 
+
 router.route('/').get((req, res) => {
   Project.find()
     .then(projects => res.json(projects))
@@ -10,13 +11,13 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
   const username = req.body.username;
   const description = req.body.description;
-  const duration = Number(req.body.duration);
+  const projectID = Number(req.body.projectID);
   const date = Date.parse(req.body.date);
 
   const newProject = new Project({
     username,
     description,
-    duration,
+    projectID,
     date,
   });
 
@@ -48,7 +49,7 @@ router.route('/:id').get((req, res) => {
       .then(project => {
         project.username = req.body.username;
         project.description = req.body.description;
-        project.duration = Number(req.body.duration);
+        project.projectID = Number(req.body.projectID);
         project.date = Date.parse(req.body.date);
   
         project.save()

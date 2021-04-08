@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const hardwareSchema = new Schema({
     availability: { type: Number},
-    capacity: { type: Number},
+    capacity: {type: Number},
 }, {
     timestamps: true,
 });

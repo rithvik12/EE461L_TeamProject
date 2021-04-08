@@ -9,14 +9,14 @@ export default class EditProject extends Component {
 
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.onChangeDuration = this.onChangeDuration.bind(this);
+    this.onChangeProjectID = this.onChangeProjectID.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       username: '',
       description: '',
-      duration: 0,
+      projectID: 0,
       date: new Date(),
       users: []
     }
@@ -29,7 +29,7 @@ export default class EditProject extends Component {
         this.setState({
           username: response.data.username,
           description: response.data.description,
-          duration: response.data.duration,
+          projectID: response.data.projectID,
           date: new Date(response.data.date)
         })   
       })
@@ -58,9 +58,9 @@ export default class EditProject extends Component {
     });
   }
 
-  onChangeDuration(e) {
+  onChangeProjectID(e) {
     this.setState({
-      duration: e.target.value
+      projectID: e.target.value
     });
   }
 
@@ -76,7 +76,7 @@ export default class EditProject extends Component {
     const project = {
       username: this.state.username,
       description: this.state.description,
-      duration: this.state.duration,
+      projectID: this.state.projectID,
       date: this.state.date,
     };
 
@@ -119,12 +119,12 @@ export default class EditProject extends Component {
                 />
           </div>
           <div className="form-group">
-            <label>Duration (in minutes): </label>
+            <label>Project ID: </label>
             <input 
                 type="text" 
                 className="form-control"
-                value={this.state.duration}
-                onChange={this.onChangeDuration}
+                value={this.state.projectID}
+                onChange={this.onChangeProjectID}
                 />
           </div>
           <div className="form-group">
