@@ -7,6 +7,7 @@ import ProjectsList from "./components/projects-list.component";
 import EditProject from "./components/edit-project.component";
 import CreateProject from "./components/create-project.component";
 import CreateUser from "./components/create-user.component";
+import EditHardware from "./components/edit-hardware.component";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/edit/:id" component={EditProject} />
         <Route path="/create" component={CreateProject} />
         <Route path="/user" component={CreateUser} />
+        <Route path="/hardware" component={EditHardware} />
       </div>
     </Router>
   );
