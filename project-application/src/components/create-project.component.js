@@ -110,7 +110,7 @@ export default class CreateProject extends Component {
                 onChange={this.onChangeDescription}
                 />
           </div>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Project ID: </label>
             <input 
                 type="text" 
@@ -118,7 +118,7 @@ export default class CreateProject extends Component {
                 value={this.state.projectID}
                 onChange={this.onChangeProjectID}
                 />
-          </div>
+          </div> */}
           <div className="form-group">
             <label>Date: </label>
             <div>

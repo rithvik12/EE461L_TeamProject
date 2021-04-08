@@ -6,7 +6,8 @@ const Project = props => (
     <tr>
       <td>{props.project.username}</td>
       <td>{props.project.description}</td>
-      <td>{props.project.projectID}</td>
+      {/*<td>{props.project.projectID}</td>*/}
+      <td>{props.project._id}</td>
       <td>{props.project.date.substring(0,10)}</td>
       <td>
         <Link to={"/edit/"+props.project._id}>edit</Link> | <a href="#" onClick={() => { props.deleteProject(props.project._id) }}>delete</a>
