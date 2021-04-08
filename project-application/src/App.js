@@ -8,6 +8,7 @@ import EditProject from "./components/edit-project.component";
 import CreateProject from "./components/create-project.component";
 import CreateUser from "./components/create-user.component";
 import ViewHardware from "./components/view-hardware.component";
+import LoginUser from "./components/log-in.component";
 //import EditHardware from "./components/edit-hardware.component";
 
 //edit to route to dataset component when complete
@@ -23,8 +24,8 @@ function App() {
         <Route path="/edit-project/:id" component={EditProject} />
         <Route path="/create-project" component={CreateProject} />
         <Route path="/user" component={CreateUser} />
+        <Route path="/login" component={LoginUser} />
         <Route path="/hardware" component={ViewHardware} />
-
         <Route path="/dataset" component={ViewHardware} />
         <Route path="/edit-hardware" component={ViewHardware} />
 

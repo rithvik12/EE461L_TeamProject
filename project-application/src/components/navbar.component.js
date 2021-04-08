@@ -19,7 +19,7 @@ export default class Navbar extends Component {
           <Link to="/dataset" className="nav-link">Datasets</Link>
           </li>
           <li className="navbar-item">
-          <Link to="/user" className="btn btn-secondary">Log In</Link>
+          <Link to="/login" className="btn btn-secondary">Log In</Link>
           </li>
         </ul>
         </div>

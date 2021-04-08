@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-export default class CreateUser extends Component {
+export default class LoginUser extends Component {
     constructor(props) {
         super(props);
         this.onChangeUsername = this.onChangeUsername.bind(this);
@@ -48,7 +49,7 @@ export default class CreateUser extends Component {
   render() {
     return (
         <div>
-        <h3>Create New User</h3>
+        <h3>Login with Existing User</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group"> 
             <label>Username: </label>
@@ -69,9 +70,12 @@ export default class CreateUser extends Component {
                 />
           </div>
           <div className="form-group">
-            <input type="submit" value="Create User" className="btn btn-primary" />
+            <input type="submit" value="Login" className="btn btn-primary" />
           </div>
 
+          <div className="form-group">
+             <Link to="/user" className="btn btn-primary">Create New User</Link>
+          </div>
 
         </form>
       </div>
