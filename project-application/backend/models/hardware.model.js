@@ -5,6 +5,8 @@ const Schema = mongoose.Schema;
 const hardwareSchema = new Schema({
     availability: { type: Number},
     capacity: { type: Number},
+    checkedIn: { type: Number},
+    checkedOut: { type: Number},
 }, {
     timestamps: true,
 });
