@@ -69,14 +69,15 @@ export default class LoginUser extends Component {
                 onChange={this.onChangePassword}
                 />
           </div>
-          <div className="form-group">
+          <div class="row">
+          <div className="form-group">&nbsp;
             <input type="submit" value="Login" className="btn btn-primary" />
           </div>
-
-          <div className="form-group">
+          
+          <div className="form-group">&nbsp;
              <Link to="/create-user" className="btn btn-primary">Create New User</Link>
           </div>
-
+          </div>
         </form>
       </div>
     )
