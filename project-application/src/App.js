@@ -8,6 +8,7 @@ import EditProject from "./components/edit-project.component";
 import CreateProject from "./components/create-project.component";
 import CreateUser from "./components/create-user.component";
 import ViewHardware from "./components/view-hardware.component";
+import CreateUser1 from "./components/log-in.component";
 //import EditHardware from "./components/edit-hardware.component";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/create" component={CreateProject} />
         <Route path="/user" component={CreateUser} />
         <Route path="/hardware" component={ViewHardware} />
+        <Route path="/login" component={CreateUser1} />
       </div>
     </Router>
   );
