@@ -24,20 +24,10 @@ function App() {
         <Route path="/create-project" component={CreateProject} />
         <Route path="/user" component={CreateUser} />
         <Route path="/hardware" component={ViewHardware} />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         <Route path="/dataset" component={ViewHardware} />
         <Route path="/edit-hardware" component={ViewHardware} />
-=======
->>>>>>> parent of 96fe750 (Login Page)
-=======
->>>>>>> parent of 96fe750 (Login Page)
-=======
->>>>>>> parent of 96fe750 (Login Page)
-=======
->>>>>>> parent of 96fe750 (Login Page)
+
       </div>
     </Router>
   );
