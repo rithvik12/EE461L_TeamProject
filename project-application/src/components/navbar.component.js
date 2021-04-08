@@ -13,13 +13,13 @@ export default class Navbar extends Component {
           <Link to="/" className="nav-link">Projects</Link>
           </li>
           <li className="navbar-item">
-          <Link to="/create" className="nav-link">Create New Project</Link>
-          </li>
-          <li className="navbar-item">
-          <Link to="/user" className="nav-link">Create User</Link>
-          </li>
-          <li className="navbar-item">
           <Link to="/hardware" className="nav-link">Hardware Sets</Link>
+          </li>
+          <li className="navbar-item">
+          <Link to="/dataset" className="nav-link">Datasets</Link>
+          </li>
+          <li className="navbar-item">
+          <Link to="/user" className="btn btn-secondary">Log In</Link>
           </li>
         </ul>
         </div>
