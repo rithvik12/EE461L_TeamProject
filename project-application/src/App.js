@@ -24,8 +24,6 @@ function App() {
         <Route path="/create-project" component={CreateProject} />
         <Route path="/user" component={CreateUser} />
         <Route path="/hardware" component={ViewHardware} />
-        <Route path="/dataset" component={ViewHardware} />
-        <Route path="/edit-hardware" component={ViewHardware} />
       </div>
     </Router>
   );
