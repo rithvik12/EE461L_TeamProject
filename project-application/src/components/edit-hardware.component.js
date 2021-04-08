@@ -66,6 +66,8 @@ export default class EditHardware extends Component{
 
         console.log(hardware);
 
-        
+        axios.post('http://localhost:5000/hardwares', hardware).then(res => console.log(res.data));
+
+        window.location = '/';
     }
 }
