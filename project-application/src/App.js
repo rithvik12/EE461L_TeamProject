@@ -30,8 +30,8 @@ function App() {
         <Route path="/hardware" component={ViewHardware} />
         <Route path="/dataset" component={DatasetList} />
         <Route path="/edit-hardware" component={ViewHardware} />
-        <Route path="/checkin-hardware" component={CheckIn} />
-        <Route path="/checkout-hardware" component={CheckOut} />
+        <Route path="/checkin-hardware/:id" component={CheckIn} />
+        <Route path="/checkout-hardware/:id" component={CheckOut} />
       </div>
     </Router>
   );
