@@ -14,7 +14,7 @@ const Hardware = props => (
         <td>{props.hardware.hw1checkedOut}</td>
         <td>{props.hardware.hw2checkedOut}</td>
         <td>
-            <Link to={"/checkout-hardware/"+props.hardware._id}>check out</Link> <Link to={"/checkin-hardware/"+props.hardware._id}>check in</Link>
+            <Link to={"/checkout-hardware/"+props.hardware._id}>check out</Link> | <Link to={"/checkin-hardware/"+props.hardware._id}>check in</Link>
         </td>
     </tr>
 )
