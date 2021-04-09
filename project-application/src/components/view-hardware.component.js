@@ -14,10 +14,7 @@ const Hardware = props => (
         <td>{props.hardware.hw1checkedOut}</td>
         <td>{props.hardware.hw2checkedOut}</td>
         <td>
-            <Link to={"/checkout-hardware/"+props.hardware._id}>check out</Link>
-        </td>
-        <td>
-            <Link to={"/checkin-hardware/"+props.hardware._id}>check in</Link>
+            <Link to={"/checkout-hardware/"+props.hardware._id}>check out</Link> <Link to={"/checkin-hardware/"+props.hardware._id}>check in</Link>
         </td>
     </tr>
 )
@@ -57,8 +54,7 @@ export default class ViewHardware extends Component {
                             <th>HW1 Checked Out</th>
                             <th>HW2 Available</th>
                             <th>HW2 Checked Out</th>
-                            <th>Action 1</th>
-                            <th>Action 2</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
