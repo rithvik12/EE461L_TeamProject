@@ -19,6 +19,16 @@ export default class CheckoutHardware extends Component{
         }
     }
 
+    componentDidMount() {
+        this.setState({
+            hw1available: this.state.hw1available,
+            hw2available: this.state.hw2available,
+            hw1checkedOut: this.state.hw1checkedOut,
+            hw2checkedOut: this.state.hw2checkedOut
+        })
+
+    }
+
     onChangeHW1Available(e) {
         this.setState({
             hw1available: e.target.value
@@ -67,7 +77,12 @@ export default class CheckoutHardware extends Component{
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>HW1 Available: </label>
-
+                        <input type="text"
+                            required
+                            className="form-control"
+                            value={this.state.hw1available}
+                            onChange={this.onChangeHW1Available}
+                            />
                     </div>
                     <div className="form-group">
                         <label>HW1 to Check Out: <input type="text" /></label>
