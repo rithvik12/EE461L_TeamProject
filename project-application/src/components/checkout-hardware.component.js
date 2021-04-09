@@ -85,15 +85,24 @@ export default class CheckoutHardware extends Component{
                             />
                     </div>
                     <div className="form-group">
-                        <label>HW1 to Check Out: <input type="text" /></label>
-                        <button type="button">Check Out</button>
+                        <label>HW1 to Check Out: <input type="number" /></label>
+                        {/* <button type="button">Check Out</button> */}
                     </div>
                     <div className="form-group">
                         <label>HW2 Available</label>
+                        <input type="text"
+                            required
+                            className="form-control"
+                            value={this.state.hw2available}
+                            onChange={this.onChangeHW2Available}
+                            />
                     </div>
                     <div className="form-group">
-                        <label>HW2 to Check Out: <input type="text" /></label>
-                        <button type="button">Check Out</button>
+                        <label>HW2 to Check Out: <input type="number" /></label>
+                        {/* <button type="button">Check Out</button> */}
+                    </div>
+                    <div className="form-group">
+                        <input type="submit" value="Check Out" className="btn btn-primary" />
                     </div>
                 </form>
             </div>
