@@ -9,7 +9,7 @@ import CreateProject from "./components/create-project.component";
 import CreateUser from "./components/create-user.component";
 import ViewHardware from "./components/view-hardware.component";
 import LoginUser from "./components/log-in.component";
-//import EditHardware from "./components/edit-hardware.component";
+import EditHardware from "./components/edit-hardware.component";
 
 //edit to route to dataset component when complete
 //edit to route to edit-hardware component when complete
@@ -27,7 +27,7 @@ function App() {
         <Route path="/login" component={LoginUser} />
         <Route path="/hardware" component={ViewHardware} />
         <Route path="/dataset" component={ViewHardware} />
-        <Route path="/edit-hardware" component={ViewHardware} />
+        <Route path="/edit-hardware/:id" component={EditHardware} />
       </div>
     </Router>
   );
