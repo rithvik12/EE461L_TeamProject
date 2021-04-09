@@ -71,11 +71,17 @@ export default class CreateProject extends Component {
       projectID: this.state.projectID,
       date: this.state.date,
     };
+
+    const hardware = {
+      username: this.state.username,
+      description: this.state.description,
+    };
   
     console.log(project);
 
     axios.post('http://localhost:5000/projects/add', project).then(res => console.log(res.data));
-    
+    axios.post('http://localhost:5000/hardwares/add', hardware).then(res => console.log(res.data));
+
     window.location = '/';
   }
 

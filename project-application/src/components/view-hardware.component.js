@@ -26,7 +26,7 @@ export default class ViewHardware extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/projects/')
+        axios.get('http://localhost:5000/hardwares/')
         .then(response => {
             this.setState({ hardwares: response.data });
         })

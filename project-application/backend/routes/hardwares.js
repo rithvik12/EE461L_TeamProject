@@ -7,6 +7,20 @@ router.route('/').get((reg, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/add').post((req, res) => {
+    const username = req.body.username;
+    const description = req.body.description;
+
+    const newHardware = new Hardware({
+        username,
+        description,
+    });
+
+    newHardware.save()
+    .then(() => res.json('Hardware added!'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/update/:id').post((req, res) => {
     Hardware.findById(req.params.id)
     .then(hardware => {
