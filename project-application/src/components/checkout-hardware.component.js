@@ -14,8 +14,8 @@ export default class CheckoutHardware extends Component{
         this.state = {
             hw1available: 100,
             hw2available: 100,
-            hw1checkedOut: this.props.hw1checkedOut,
-            hw2checkedOut: this.props.hw2checkedOut
+            hw1checkedOut: this.hw1checkedOut,
+            hw2checkedOut: this.hw2checkedOut
         }
     }
 
@@ -56,16 +56,19 @@ export default class CheckoutHardware extends Component{
     onSubmit(e) {
         e.preventDefault();
 
+        //let hw1available = this.state.hw1available-this.state.hw1checkedOut;
+        //let hw2available = this.state.hw2available-this.state.hw2checkedOut;
+
         const hardware = {
-            hw1available: this.state.hw1available-this.state.hw1checkedOut,
-            hw2available: this.state.hw2available-this.state.hw2checkedOut,
+            // hw1available: this.state.hw1available-this.state.hw1checkedOut,
+            // hw2available: this.state.hw2available-this.state.hw2checkedOut,
             hw1checkedOut: this.state.hw1checkedOut,
             hw2checkedOut: this.state.hw2checkedOut,
         };
 
         console.log(hardware);
 
-        axios.post('http://localhost:5000/hardwares', hardware).then(res => console.log(res.data));
+        axios.post('http://localhost:5000/hardwares/update'+this.props.match.params.id, hardware).then(res => console.log(res.data));
 
         window.location = '/hardware';
     }
@@ -85,7 +88,13 @@ export default class CheckoutHardware extends Component{
                             />
                     </div>
                     <div className="form-group">
-                        <label>HW1 to Check Out: <input type="number" /></label>
+                        <label>HW1 to Check Out: <input type="number"
+                            required
+                            className="form-control"
+                            value={this.state.hw1checkedOut}
+                            onChange={this.onChangeHW1CheckedOut}
+                        /></label>
+
                         {/* <button type="button">Check Out</button> */}
                     </div>
                     <div className="form-group">
@@ -98,7 +107,13 @@ export default class CheckoutHardware extends Component{
                             />
                     </div>
                     <div className="form-group">
-                        <label>HW2 to Check Out: <input type="number" /></label>
+                        <label>HW2 to Check Out: <input type="number"
+                            required
+                            className="form-control"
+                            value={this.state.hw2checkedOut}
+                            onChange={this.onChangeHW2CheckedOut}
+                        /></label>
+
                         {/* <button type="button">Check Out</button> */}
                     </div>
                     <div className="form-group">
