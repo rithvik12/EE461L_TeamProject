@@ -22,9 +22,11 @@ connection.once('open', () => {
 // load routers from other files
 const projectsRouter = require('./routes/projects');
 const usersRouter = require('./routes/users');
+const hardwaresRouter = require('./routes/hardwares');
 
 app.use('/projects', projectsRouter);
 app.use('/users', usersRouter);
+app.use('/hardwares', hardwaresRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
