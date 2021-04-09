@@ -12,8 +12,8 @@ export default class CheckoutHardware extends Component{
         this.onChangeHW2CheckedOut = this.onChangeHW2CheckedOut.bind(this);
 
         this.state = {
-            hw1available: this.props.hw1available,
-            hw2available: this.props.hw2available,
+            hw1available: 100,
+            hw2available: 100,
             hw1checkedOut: this.props.hw1checkedOut,
             hw2checkedOut: this.props.hw2checkedOut
         }
@@ -47,8 +47,8 @@ export default class CheckoutHardware extends Component{
         e.preventDefault();
 
         const hardware = {
-            hw1available: this.state.hw1available,
-            hw2available: this.state.hw2available,
+            hw1available: this.state.hw1available-this.state.hw1checkedOut,
+            hw2available: this.state.hw2available-this.state.hw2checkedOut,
             hw1checkedOut: this.state.hw1checkedOut,
             hw2checkedOut: this.state.hw2checkedOut,
         };
@@ -58,5 +58,30 @@ export default class CheckoutHardware extends Component{
         axios.post('http://localhost:5000/hardwares', hardware).then(res => console.log(res.data));
 
         window.location = '/hardware';
+    }
+
+    render() {
+        return (
+            <div>
+                <h3>Check Out Hardware</h3>
+                <form onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                        <label>HW1 Available: </label>
+
+                    </div>
+                    <div className="form-group">
+                        <label>HW1 to Check Out: <input type="text" /></label>
+                        <button type="button">Check Out</button>
+                    </div>
+                    <div className="form-group">
+                        <label>HW2 Available</label>
+                    </div>
+                    <div className="form-group">
+                        <label>HW2 to Check Out: <input type="text" /></label>
+                        <button type="button">Check Out</button>
+                    </div>
+                </form>
+            </div>
+        )
     }
 }
