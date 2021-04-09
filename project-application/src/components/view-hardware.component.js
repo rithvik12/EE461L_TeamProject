@@ -8,13 +8,13 @@ const Hardware = props => (
         <td>{props.hardware.username}</td>
         <td>{props.hardware.description}</td>
         <td>{props.hardware.hw1available}</td>
-        <td>{props.hardware.hw2available}</td>
         {/* <td>{props.hardware.capacity}</td> */}
         {/* <td>{props.hardware.checkedIn}</td> */}
         <td>{props.hardware.hw1checkedOut}</td>
+        <td>{props.hardware.hw2available}</td>
         <td>{props.hardware.hw2checkedOut}</td>
         <td>
-            <Link to={"/checkout-hardware/"+props.hardware._id}>check out</Link> | <Link to={"/checkin-hardware/"+props.hardware._id}>check in</Link>
+            <Link to={"/checkout-hardware/"+props.hardware._id}>check out</Link> | <Link to={"/checkin-hardware/"+props.hardware._id}>check in</Link> | <a href="/hardware" onClick={() => { props.deleteHardware(props.hardware._id) }}>delete</a>
         </td>
     </tr>
 )
@@ -35,9 +35,17 @@ export default class ViewHardware extends Component {
         })
     }
 
+    deleteHardware(id) {
+        axios.delete('http://localhost:5000/hardwares/'+id)
+        .then(res => console.log(res.data));
+        this.setState({
+          hardwares: this.state.hardwares.filter(el => el._id !== id)
+        })
+      }
+
     hardwareList() {
         return this.state.hardwares.map(currenthardware => {
-            return <Hardware hardware={currenthardware} key={currenthardware._id}/>;
+            return <Hardware hardware={currenthardware} deleteHardware={this.deleteHardware} key={currenthardware._id}/>;
         })
     }
 
