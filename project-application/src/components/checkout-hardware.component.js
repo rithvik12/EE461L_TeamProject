@@ -5,6 +5,7 @@ export default class CheckoutHardware extends Component{
     constructor(props) {
         super(props);
 
+        //testing a push
         this.onChangeHW1Available = this.onChangeHW1Available.bind(this);
         this.onChangeHW2Available = this.onChangeHW2Available.bind(this);
         this.onChangeHW1CheckedOut = this.onChangeHW1CheckedOut.bind(this);
