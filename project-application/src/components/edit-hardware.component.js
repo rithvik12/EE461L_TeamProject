@@ -111,12 +111,13 @@ export default class EditHardware extends Component{
                 <h3>Edit Hardware</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Project Name: </label>
+                        <label>HW1 Available</label>
+                        {/* <label>Project Name: </label>
                         <select ref="userInput"
                             required
                             className="form-control"
-                            value={this.state.projectName}
-                            onChange={this.onChangeProjectName}>
+                            value={this.state.username}
+                            onChange={this.onChangeUsername}>
                             {
                                 this.state.projects.map(function(project){
                                     return <option
@@ -125,7 +126,16 @@ export default class EditHardware extends Component{
                                     </option>;
                                 })
                             }
-                            </select>
+                            </select> */}
+                    </div>
+                    <div className="form-group">
+                        <label>HW1 to Check Out</label>
+                    </div>
+                    <div className="form-group">
+                        <label>HW2 Available</label>
+                    </div>
+                    <div className="form-group">
+                        <label>HW2 to Check Out</label>
                     </div>
                 </form>
             </div>
