@@ -10,6 +10,8 @@ import CreateUser from "./components/create-user.component";
 import ViewHardware from "./components/view-hardware.component";
 import LoginUser from "./components/log-in.component";
 import DatasetList from "./components/dataset-list.component";
+import CheckOut from "./components/checkout-hardware.component";
+import CheckIn from "./components/checkin-hardware.component";
 //import EditHardware from "./components/edit-hardware.component";
 
 //edit to route to edit-hardware component when complete
@@ -28,6 +30,8 @@ function App() {
         <Route path="/hardware" component={ViewHardware} />
         <Route path="/dataset" component={DatasetList} />
         <Route path="/edit-hardware" component={ViewHardware} />
+        <Route path="/checkin-hardware" component={CheckIn} />
+        <Route path="/checkout-hardware" component={CheckOut} />
       </div>
     </Router>
   );

@@ -108,7 +108,7 @@ export default class EditHardware extends Component{
     render() {
         return (
             <div>
-                <h3>Edit Hardware</h3>
+                <h3>Check Out Hardware</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>HW1 Available</label>
@@ -129,13 +129,15 @@ export default class EditHardware extends Component{
                             </select> */}
                     </div>
                     <div className="form-group">
-                        <label>HW1 to Check Out</label>
+                        <label>HW1 to Check Out: <input type="text" /></label>
+                        <button type="button">Check Out</button>
                     </div>
                     <div className="form-group">
                         <label>HW2 Available</label>
                     </div>
                     <div className="form-group">
-                        <label>HW2 to Check Out</label>
+                        <label>HW2 to Check Out: <input type="text" /></label>
+                        <button type="button">Check Out</button>
                     </div>
                 </form>
             </div>
