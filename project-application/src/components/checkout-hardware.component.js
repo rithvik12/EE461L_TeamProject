@@ -61,8 +61,8 @@ export default class CheckoutHardware extends Component{
         //let hw2available = this.state.hw2available-this.state.hw2checkedOut;
 
         const hardware = {
-            this.hw1available: this.state.hw1available-this.state.hw1checkedOut,
-            this.hw2available: this.state.hw2available-this.state.hw2checkedOut,
+            hw1available: this.state.hw1available-this.state.hw1checkedOut,
+            hw2available: this.state.hw2available-this.state.hw2checkedOut,
             hw1checkedOut: this.state.hw1checkedOut,
             hw2checkedOut: this.state.hw2checkedOut,
         };
