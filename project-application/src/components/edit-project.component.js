@@ -24,7 +24,7 @@ export default class EditProject extends Component {
 
   componentDidMount() {
       // gets current project from database and loads data into state variables
-    axios.get('https://quiet-lowlands-32326.herokuapp.com/projects/'+this.props.match.params.id)
+    axios.get('hhttp://localhost:5000/projects/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -37,7 +37,7 @@ export default class EditProject extends Component {
         console.log(error);
       })
 
-    axios.get('https://quiet-lowlands-32326.herokuapp.com/users/')
+    axios.get('http://localhost:5000/users/')
       .then(response => {
         this.setState({ users: response.data.map(user => user.username) });
       })
@@ -82,7 +82,7 @@ export default class EditProject extends Component {
 
     console.log(project);
 
-    axios.post('https://quiet-lowlands-32326.herokuapp.com/projects/update/'+this.props.match.params.id, project)
+    axios.post('http://localhost:5000/projects/update/'+this.props.match.params.id, project)
       .then(res => console.log(res.data));
     
     window.location = '/';
