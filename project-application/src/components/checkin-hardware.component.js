@@ -14,11 +14,30 @@ export default class CheckInHardware extends Component{
 
 
         this.state = {
-            hw1available: 900,
-            hw2available: 100,
-            hw1checkedIn: this.props.hw1checkedIn,
-            hw2checkedIn: this.props.hw2checkedIn
+            username:'',
+            description:'',
+            hw1available: 0,
+            hw2available: 0,
+            hw1checkedIn: 0,
+            hw2checkedIn: 0,
         }
+    }
+    componentDidMount() {
+
+        axios.get('http://localhost:5000/hardwares/'+this.props.match.params.id)
+      .then(response => {
+        this.setState({
+            username: response.data.username,
+            description: response.data.description,
+            hw1available: response.data.hw1available,
+            hw2available: response.data.hw2available,
+            hw1checkedOut: response.data.hw1checkedOut,
+            hw2checkedOut: response.data.hw2checkedOut
+        })
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
     }
 
     onChangeHW1Available(e) {
@@ -49,15 +68,20 @@ export default class CheckInHardware extends Component{
         e.preventDefault();
 
         const hardware = {
-            hw1available: this.state.hw1available-this.state.hw1checkedIn,
-            hw2available: this.state.hw2available-this.state.hw2checkedIn,
+            username: this.state.username,
+            description: this.state.description,
+            hw1available: parseInt(this.state.hw1available)+parseInt(this.state.hw1checkedIn),
+            hw2available: parseInt(this.state.hw2available)+parseInt(this.state.hw2checkedIn),
             hw1checkedIn: this.state.hw1checkedIn,
-            hw2checkedIn: this.state.hw2checkedIn,
+            hw2checkedIn: this.state.hw2checkedIn
         };
 
         console.log(hardware);
 
-        axios.post('http://localhost:5000/hardwares', hardware).then(res => console.log(res.data));
+        axios.post('http://localhost:5000/hardwares/update/'+this.props.match.params.id, hardware)
+      .then(res => console.log(res.data));
+
+        axios.post('http://localhost:5000/hardwares/update'+this.props.match.params.id, hardware).then(res => console.log(res.data));
 
         window.location = '/hardware';
     }
@@ -68,19 +92,41 @@ export default class CheckInHardware extends Component{
                 <h3>Check In Hardware</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>HW1 Available: </label>
-                        //<p id="numAvailable"></p>
+                      <label>HW1 Available: </label>
+                      <input type="text"
+                          required
+                          className="form-control"
+                          value={this.state.hw1available}
+                          onChange={this.onChangeHW1Available}
+                          />
                     </div>
                     <div className="form-group">
-                        <label>HW1 to Check In: <input type="text" /></label>
-                        <button type="button">Check In</button>
+                      <label>HW1 to Check In: <input type="number"
+                          required
+                          className="form-control"
+                          value={this.state.hw1checkedIn}
+                          onChange={this.onChangeHW1CheckedIn}
+                      /></label>
                     </div>
                     <div className="form-group">
-                        <label>HW2 Available</label>
+                      <label>HW2 Available</label>
+                      <input type="text"
+                          required
+                          className="form-control"
+                          value={this.state.hw2available}
+                          onChange={this.onChangeHW2Available}
+                          />
                     </div>
                     <div className="form-group">
-                        <label>HW2 to Check In: <input type="text" /></label>
-                        <button type="button">Check In</button>
+                      <label>HW2 to Check Out: <input type="number"
+                          required
+                          className="form-control"
+                          value={this.state.hw2checkedIn}
+                          onChange={this.onChangeHW2CheckedIn}
+                      /></label>
+                    </div>
+                    <div className="form-group">
+                        <input type="submit" value="Check In" className="btn btn-primary" />
                     </div>
                 </form>
             </div>
