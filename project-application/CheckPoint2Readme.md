@@ -20,4 +20,3 @@ The following are known issues that are still being worked out:
 * Existing projects are viewable by anyone, logged in or not.
 * Clicking the Log In button on the login page reroutes you to the project page whether your credentials were correct or not.
 * There is no difference in user experience for users logged in or not.
-* Checking out more hardware sets than available is possible.
