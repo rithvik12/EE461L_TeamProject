@@ -36,7 +36,7 @@ export default class CreateUser extends Component {
 
         // sends HTTP POST request to backend endpoint as listed below
         // endpoint is expecting a JSON object in the request body so 'newUser' object is passed as second argument
-        axios.post('https://quiet-lowlands-32326.herokuapp.com/users/add', newUser).then(res => console.log(res.data));
+        axios.post('http://localhost:5000/users/add', newUser).then(res => console.log(res.data));
         
         this.setState({
             username: '',

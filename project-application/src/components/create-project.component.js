@@ -23,7 +23,7 @@ export default class CreateProject extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://quiet-lowlands-32326.herokuapp.com/users/')
+    axios.get('http://localhost:5000/users/')
   .then(response => {
     if (response.data.length > 0) {
       this.setState({ 
@@ -79,8 +79,8 @@ export default class CreateProject extends Component {
   
     console.log(project);
 
-    axios.post('https://quiet-lowlands-32326.herokuapp.com/projects/add', project).then(res => console.log(res.data));
-    axios.post('https://quiet-lowlands-32326.herokuapp.com/hardwares/add', hardware).then(res => console.log(res.data));
+    axios.post('http://localhost:5000/projects/add', project).then(res => console.log(res.data));
+    axios.post('http://localhost:5000/hardwares/add', hardware).then(res => console.log(res.data));
 
     window.location = '/';
   }
