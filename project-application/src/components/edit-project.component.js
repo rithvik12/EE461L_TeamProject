@@ -24,7 +24,7 @@ export default class EditProject extends Component {
 
   componentDidMount() {
       // gets current project from database and loads data into state variables
-    axios.get('hhttp://localhost:5000/projects/'+this.props.match.params.id)
+    axios.get('http://localhost:5000/projects/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,

@@ -23,7 +23,7 @@ export default class CreateProject extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000//users/')
+    axios.get('http://localhost:5000/users/')
   .then(response => {
     if (response.data.length > 0) {
       this.setState({ 

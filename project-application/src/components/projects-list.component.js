@@ -36,7 +36,7 @@ export default class ProjectsList extends Component {
       deleteProject(id) {
         axios.delete('http://localhost:5000/hardwares/'+(id+1))
         .then(res => console.log(res.data));
-        axios.delete('http://localhost:5000/'+id)
+        axios.delete('http://localhost:5000/projects/'+id)
           .then(res => console.log(res.data));
         this.setState({
           projects: this.state.projects.filter(el => el._id !== id)
