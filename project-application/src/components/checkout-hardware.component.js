@@ -13,20 +13,66 @@ export default class CheckoutHardware extends Component{
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            hw1available: 100,
-            hw2available: 100,
-            hw1checkedOut: this.hw1checkedOut,
-            hw2checkedOut: this.hw2checkedOut
+            username:'',
+            description:'',
+            hw1available: 0,
+            hw2available: 0,
+            hw1checkedOut: 0,
+            hw2checkedOut: 0,
+            // hw1checkingOut: 0,
+            // hw2checkingOut: 0
         }
     }
 
     componentDidMount() {
+
+        axios.get('http://localhost:5000/hardwares/'+this.props.match.params.id)
+      .then(response => {
         this.setState({
-            hw1available: this.state.hw1available,
-            hw2available: this.state.hw2available,
-            hw1checkedOut: this.state.hw1checkedOut,
-            hw2checkedOut: this.state.hw2checkedOut
+            username: response.data.username,
+            description: response.data.description,
+            hw1available: response.data.hw1available,
+            hw2available: response.data.hw2available,
+            hw1checkedOut: response.data.hw1checkedOut,
+            hw2checkedOut: response.data.hw2checkedOut
         })
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+
+    //     axios.get('http://localhost:5000/projects/'+this.props.match.params.id)
+    //   .then(response => {
+    //     this.setState({
+    //       username: response.data.username,
+    //       description: response.data.description,
+    //       projectID: response.data.projectID,
+    //       date: new Date(response.data.date)
+    //     })
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   })
+
+    //     axios.get('http://localhost:5000/users/')
+    //     .then(response => {
+    //       if (response.data.length > 0) {
+    //         this.setState({
+    //           users: response.data.map(user => user.username),
+    //           username: response.data[0].username
+    //         });
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     })
+
+        // this.setState({
+        //     hw1available: this.state.hw1available,
+        //     hw2available: this.state.hw2available,
+        //     hw1checkedOut: this.state.hw1checkedOut,
+        //     hw2checkedOut: this.state.hw2checkedOut
+        // })
 
     }
 
@@ -43,14 +89,15 @@ export default class CheckoutHardware extends Component{
     }
 
     onChangeHW1CheckedOut(e) {
+
         this.setState({
-            hw1checkedOut: e.target.value
+            hw1checkedOut: e.target.value,
         });
     }
 
     onChangeHW2CheckedOut(e) {
         this.setState({
-            hw2checkedOut: e.target.value
+            hw2checkedOut: e.target.value,
         });
     }
 
@@ -61,13 +108,20 @@ export default class CheckoutHardware extends Component{
         //let hw2available = this.state.hw2available-this.state.hw2checkedOut;
 
         const hardware = {
+            username: this.state.username,
+            description: this.state.description,
             hw1available: this.state.hw1available-this.state.hw1checkedOut,
             hw2available: this.state.hw2available-this.state.hw2checkedOut,
             hw1checkedOut: this.state.hw1checkedOut,
-            hw2checkedOut: this.state.hw2checkedOut,
+            hw2checkedOut: this.state.hw2checkedOut
         };
 
         console.log(hardware);
+
+        //axios.post('http://localhost:5000/projects/add', hardware).then(res => console.log(res.data));
+
+        axios.post('http://localhost:5000/hardwares/update/'+this.props.match.params.id, hardware)
+      .then(res => console.log(res.data));
 
         axios.post('http://localhost:5000/hardwares/update'+this.props.match.params.id, hardware).then(res => console.log(res.data));
 

@@ -59,9 +59,9 @@ export default class ViewHardware extends Component {
                             <th>Username</th>
                             <th>Description</th>
                             <th>HW1 Available</th>
-                            <th>HW1 Checked Out</th>
+                            <th>HW1 Last Checked Out</th>
                             <th>HW2 Available</th>
-                            <th>HW2 Checked Out</th>
+                            <th>HW2 Last Checked Out</th>
                             <th>Actions</th>
                         </tr>
                     </thead>

@@ -10,9 +10,11 @@ export default class CheckInHardware extends Component{
         this.onChangeHW2Available = this.onChangeHW2Available.bind(this);
         this.onChangeHW1CheckedIn = this.onChangeHW1CheckedIn.bind(this);
         this.onChangeHW2CheckedIn = this.onChangeHW2CheckedIn.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+
 
         this.state = {
-            hw1available: 100,
+            hw1available: 900,
             hw2available: 100,
             hw1checkedIn: this.props.hw1checkedIn,
             hw2checkedIn: this.props.hw2checkedIn
