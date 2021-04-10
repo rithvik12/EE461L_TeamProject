@@ -14,7 +14,7 @@ export default class CheckInHardware extends Component{
 
 
         this.state = {
-            hw1available: 100,
+            hw1available: 900,
             hw2available: 100,
             hw1checkedIn: this.props.hw1checkedIn,
             hw2checkedIn: this.props.hw2checkedIn
