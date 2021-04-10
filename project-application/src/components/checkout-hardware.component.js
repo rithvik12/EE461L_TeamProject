@@ -10,6 +10,7 @@ export default class CheckoutHardware extends Component{
         this.onChangeHW2Available = this.onChangeHW2Available.bind(this);
         this.onChangeHW1CheckedOut = this.onChangeHW1CheckedOut.bind(this);
         this.onChangeHW2CheckedOut = this.onChangeHW2CheckedOut.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             hw1available: 100,
@@ -60,8 +61,8 @@ export default class CheckoutHardware extends Component{
         //let hw2available = this.state.hw2available-this.state.hw2checkedOut;
 
         const hardware = {
-            // hw1available: this.state.hw1available-this.state.hw1checkedOut,
-            // hw2available: this.state.hw2available-this.state.hw2checkedOut,
+            hw1available: this.state.hw1available-this.state.hw1checkedOut,
+            hw2available: this.state.hw2available-this.state.hw2checkedOut,
             hw1checkedOut: this.state.hw1checkedOut,
             hw2checkedOut: this.state.hw2checkedOut,
         };
