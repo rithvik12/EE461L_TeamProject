@@ -13,6 +13,7 @@ The landing page for this app is the projects page. Here are some features to no
 * The Hardware Sets tab takes you to a page where you can check-out/check-in hardware sets within an existing project.
 * Creating a project adds your project to the Hardware Sets page.
 * The Datasets tab takes you to a page where you can download zipped dataset files.
+* There is a video added in the EE461L_TeamProject directory that shows a step-by-step process of what the fully deployed application would look like.
 
 ## Known Issues
 The following are known issues that are still being worked out:
@@ -21,3 +22,4 @@ The following are known issues that are still being worked out:
 * Clicking the Log In button on the login page reroutes you to the project page whether your credentials were correct or not.
 * There is no difference in user experience for users logged in or not.
 * Checking out more hardware sets than available is possible.
+* The application isn't deployed along with the MongoDB database. There is a functional front end but the database could not be deployed along with it.
