@@ -13,9 +13,6 @@ import DatasetList from "./components/dataset-list.component";
 import CheckOut from "./components/checkout-hardware.component";
 import CheckIn from "./components/checkin-hardware.component";
 //import EditHardware from "./components/edit-hardware.component";
-import LoginButton from './components/LoginButton';
-import LogoutButton from './components/LogoutButton';
-
 
 //edit to route to edit-hardware component when complete
 
@@ -23,8 +20,6 @@ function App() {
   return (
     <Router>
       <div className="container">
-        <LoginButton />
-        <LogoutButton />
         <Navbar />
         <br/>
         <Route path="/" exact component={ProjectsList} />
