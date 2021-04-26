@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export default class LoginUser extends Component {
     constructor(props) {
@@ -21,12 +22,13 @@ export default class LoginUser extends Component {
           username: e.target.value
         });
       }
-      //new stuff
+      // new stuff
       onChangePassword(e){
         this.setState({
             password: e.target.value
         });
     }
+
     onSubmit(e) {
         e.preventDefault();
         const newUser = {
@@ -46,6 +48,7 @@ export default class LoginUser extends Component {
   
           window.location = '/';
       }
+
   render() {
     return (
         <div>
