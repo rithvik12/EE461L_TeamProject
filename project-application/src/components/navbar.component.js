@@ -22,6 +22,11 @@ export default class Navbar extends Component {
           <Link to="/login" className="btn btn-secondary">Log In</Link>
           </li>
         </ul>
+        <ul className="navbar-nav">
+          <li className="navbar-item">
+          <font color="white">Hello, user</font>
+          </li>
+        </ul>
         </div>
       </nav>
     );
