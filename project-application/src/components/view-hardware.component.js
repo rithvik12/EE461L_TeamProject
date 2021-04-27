@@ -26,7 +26,7 @@ export default class ViewHardware extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/hardwares/')
+        axios.get('http://quiet-lowlands-32326/hardwares/')
         .then(response => {
             this.setState({ hardwares: response.data });
         })
@@ -36,7 +36,7 @@ export default class ViewHardware extends Component {
     }
 
     deleteHardware(id) {
-        axios.delete('http://localhost:5000/hardwares/'+id)
+        axios.delete('http://quiet-lowlands-32326/hardwares/'+id)
         .then(res => console.log(res.data));
         this.setState({
           hardwares: this.state.hardwares.filter(el => el._id !== id)

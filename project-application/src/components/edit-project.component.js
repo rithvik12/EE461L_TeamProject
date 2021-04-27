@@ -24,20 +24,20 @@ export default class EditProject extends Component {
 
   componentDidMount() {
       // gets current project from database and loads data into state variables
-    axios.get('http://localhost:5000/projects/'+this.props.match.params.id)
+    axios.get('http://quiet-lowlands-32326/projects/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
           description: response.data.description,
           projectID: response.data.projectID,
           date: new Date(response.data.date)
-        })   
+        })
       })
       .catch(function (error) {
         console.log(error);
       })
 
-    axios.get('http://localhost:5000/users/')
+    axios.get('http://quiet-lowlands-32326/users/')
       .then(response => {
         this.setState({ users: response.data.map(user => user.username) });
       })
@@ -82,9 +82,9 @@ export default class EditProject extends Component {
 
     console.log(project);
 
-    axios.post('http://localhost:5000/projects/update/'+this.props.match.params.id, project)
+    axios.post('http://quiet-lowlands-32326/projects/update/'+this.props.match.params.id, project)
       .then(res => console.log(res.data));
-    
+
     window.location = '/';
   }
 
@@ -93,7 +93,7 @@ export default class EditProject extends Component {
       <div>
         <h3>Edit Project Log</h3>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
+          <div className="form-group">
             <label>Username: </label>
             <select ref="userInput"
                 className="form-control"
@@ -101,7 +101,7 @@ export default class EditProject extends Component {
                 onChange={this.onChangeUsername}>
                 {
                   this.state.users.map(function(user) {
-                    return <option 
+                    return <option
                       key={user}
                       value={user}>{user}
                       </option>;
@@ -109,7 +109,7 @@ export default class EditProject extends Component {
                 }
             </select>
           </div>
-          <div className="form-group"> 
+          <div className="form-group">
             <label>Description: </label>
             <input  type="text"
                 required
@@ -120,8 +120,8 @@ export default class EditProject extends Component {
           </div>
           <div className="form-group">
             <label>Project ID: </label>
-            <input 
-                type="text" 
+            <input
+                type="text"
                 className="form-control"
                 value={this.state.projectID}
                 onChange={this.onChangeProjectID}

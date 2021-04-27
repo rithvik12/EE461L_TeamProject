@@ -37,13 +37,13 @@ export default class LoginUser extends Component {
 
         // sends HTTP POST request to backend endpoint as listed below
         // endpoint is expecting a JSON object in the request body so 'newUser' object is passed as second argument
-        axios.post('http://localhost:5000/users/add', newUser).then(res => console.log(res.data));
-        
+        axios.post('http://quiet-lowlands-32326/users/add', newUser).then(res => console.log(res.data));
+
         this.setState({
             username: '',
             password: ''
           })
-  
+
           window.location = '/';
       }
   render() {
@@ -51,7 +51,7 @@ export default class LoginUser extends Component {
         <div>
         <h3>Login with Existing User</h3>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
+          <div className="form-group">
             <label>Username: </label>
             <input  type="text"
                 required
@@ -60,7 +60,7 @@ export default class LoginUser extends Component {
                 onChange={this.onChangeUsername}
                 />
           </div>
-          <div className="form-group"> 
+          <div className="form-group">
             <label>Password: </label>
             <input  type="text"
                 required
@@ -73,7 +73,7 @@ export default class LoginUser extends Component {
           <div className="form-group">&nbsp;
             <input type="submit" value="Login" className="btn btn-primary" />
           </div>
-          
+
           <div className="form-group">&nbsp;
              <Link to="/create-user" className="btn btn-primary">Create New User</Link>
           </div>

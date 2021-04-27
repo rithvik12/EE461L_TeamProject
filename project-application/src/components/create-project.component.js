@@ -23,10 +23,10 @@ export default class CreateProject extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/users/')
+    axios.get('http://quiet-lowlands-32326/users/')
   .then(response => {
     if (response.data.length > 0) {
-      this.setState({ 
+      this.setState({
         users: response.data.map(user => user.username),
         username: response.data[0].username
       });
@@ -64,7 +64,7 @@ export default class CreateProject extends Component {
   onSubmit(e) {
       // prevents default HTML form submit behavior from taking place
     e.preventDefault();
-  
+
     const project = {
       username: this.state.username,
       description: this.state.description,
@@ -76,11 +76,11 @@ export default class CreateProject extends Component {
       username: this.state.username,
       description: this.state.description,
     };
-  
+
     console.log(project);
 
-    axios.post('http://localhost:5000/projects/add', project).then(res => console.log(res.data));
-    axios.post('http://localhost:5000/hardwares/add', hardware).then(res => console.log(res.data));
+    axios.post('http://quiet-lowlands-32326/projects/add', project).then(res => console.log(res.data));
+    axios.post('http://quiet-lowlands-32326/hardwares/add', hardware).then(res => console.log(res.data));
 
     window.location = '/';
   }
@@ -90,7 +90,7 @@ export default class CreateProject extends Component {
       <div>
         <h3>Create New Project</h3>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
+          <div className="form-group">
             <label>Username: </label>
             <select ref="userInput"
                 required
@@ -99,7 +99,7 @@ export default class CreateProject extends Component {
                 onChange={this.onChangeUsername}>
                 {
                   this.state.users.map(function(user) {
-                    return <option 
+                    return <option
                       key={user}
                       value={user}>{user}
                       </option>;
@@ -107,7 +107,7 @@ export default class CreateProject extends Component {
                 }
             </select>
           </div>
-          <div className="form-group"> 
+          <div className="form-group">
             <label>Description: </label>
             <input  type="text"
                 required
@@ -118,8 +118,8 @@ export default class CreateProject extends Component {
           </div>
           {/* <div className="form-group">
             <label>Project ID: </label>
-            <input 
-                type="text" 
+            <input
+                type="text"
                 className="form-control"
                 value={this.state.projectID}
                 onChange={this.onChangeProjectID}

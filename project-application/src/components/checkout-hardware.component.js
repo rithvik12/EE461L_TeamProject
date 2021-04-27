@@ -26,7 +26,7 @@ export default class CheckoutHardware extends Component{
 
     componentDidMount() {
 
-        axios.get('http://localhost:5000/hardwares/'+this.props.match.params.id)
+        axios.get('http://quiet-lowlands-32326/hardwares/'+this.props.match.params.id)
       .then(response => {
         this.setState({
             username: response.data.username,
@@ -120,10 +120,10 @@ export default class CheckoutHardware extends Component{
 
         //axios.post('http://localhost:5000/projects/add', hardware).then(res => console.log(res.data));
 
-        axios.post('http://localhost:5000/hardwares/update/'+this.props.match.params.id, hardware)
+        axios.post('http://quiet-lowlands-32326/hardwares/update/'+this.props.match.params.id, hardware)
       .then(res => console.log(res.data));
 
-        axios.post('http://localhost:5000/hardwares/update'+this.props.match.params.id, hardware).then(res => console.log(res.data));
+        axios.post('http://quiet-lowlands-32326/hardwares/update'+this.props.match.params.id, hardware).then(res => console.log(res.data));
 
         window.location = '/hardware';
     }
