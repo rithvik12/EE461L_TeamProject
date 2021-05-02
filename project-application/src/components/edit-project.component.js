@@ -24,7 +24,7 @@ export default class EditProject extends Component {
 
   componentDidMount() {
       // gets current project from database and loads data into state variables
-    axios.get('http://dry-reaches-42443.herokuapp.com/projects/'+this.props.match.params.id)
+    axios.get('https://dry-reaches-42443.herokuapp.com/projects/'+this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -37,7 +37,7 @@ export default class EditProject extends Component {
         console.log(error);
       })
 
-    axios.get('http://dry-reaches-42443.herokuapp.com/users/')
+    axios.get('https://dry-reaches-42443.herokuapp.com/users/')
       .then(response => {
         this.setState({ users: response.data.map(user => user.username) });
       })
@@ -82,7 +82,7 @@ export default class EditProject extends Component {
 
     console.log(project);
 
-    axios.post('http://dry-reaches-42443.herokuapp.com/projects/update/'+this.props.match.params.id, project)
+    axios.post('https://dry-reaches-42443.herokuapp.com/projects/update/'+this.props.match.params.id, project)
       .then(res => console.log(res.data));
 
     window.location = '/';

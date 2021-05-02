@@ -24,7 +24,7 @@ export default class ProjectsList extends Component {
 
       componentDidMount() {
           // accesses the /projects endpoint
-        axios.get('http://dry-reaches-42443.herokuapp.com/projects/')
+        axios.get('https://dry-reaches-42443.herokuapp.com/projects/')
          .then(response => {
            this.setState({ projects: response.data });
          })
@@ -34,7 +34,7 @@ export default class ProjectsList extends Component {
       }
 
       deleteProject(id) {
-        axios.delete('http://dry-reaches-42443.herokuapp.com/projects/'+id)
+        axios.delete('https://dry-reaches-42443.herokuapp.com/projects/'+id)
           .then(res => console.log(res.data));
         this.setState({
           projects: this.state.projects.filter(el => el._id !== id)

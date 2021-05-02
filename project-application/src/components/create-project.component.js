@@ -23,7 +23,7 @@ export default class CreateProject extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://dry-reaches-42443.herokuapp.com/users/')
+    axios.get('https://dry-reaches-42443.herokuapp.com/users/')
   .then(response => {
     if (response.data.length > 0) {
       this.setState({
@@ -79,8 +79,8 @@ export default class CreateProject extends Component {
 
     console.log(project);
 
-    axios.post('http://dry-reaches-42443.herokuapp.com/projects/add', project).then(res => console.log(res.data));
-    axios.post('http://dry-reaches-42443.herokuapp.com/hardwares/add', hardware).then(res => console.log(res.data));
+    axios.post('https://dry-reaches-42443.herokuapp.com/projects/add', project).then(res => console.log(res.data));
+    axios.post('https://dry-reaches-42443.herokuapp.com/hardwares/add', hardware).then(res => console.log(res.data));
 
     window.location = '/';
   }
