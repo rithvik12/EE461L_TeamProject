@@ -26,7 +26,7 @@ export default class ViewHardware extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://quiet-lowlands-32326/hardwares/')
+        axios.get('http://dry-reaches-42443.herokuapp.com/hardwares/')
         .then(response => {
             this.setState({ hardwares: response.data });
         })
@@ -36,7 +36,7 @@ export default class ViewHardware extends Component {
     }
 
     deleteHardware(id) {
-        axios.delete('http://quiet-lowlands-32326/hardwares/'+id)
+        axios.delete('http://dry-reaches-42443.herokuapp.com/hardwares/'+id)
         .then(res => console.log(res.data));
         this.setState({
           hardwares: this.state.hardwares.filter(el => el._id !== id)
