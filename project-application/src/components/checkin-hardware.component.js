@@ -24,7 +24,7 @@ export default class CheckInHardware extends Component{
     }
     componentDidMount() {
 
-        axios.get('http://dry-reaches-42443.herokuapp.com/hardwares/'+this.props.match.params.id)
+        axios.get('http://quiet-lowlands-32326/hardwares/'+this.props.match.params.id)
       .then(response => {
         this.setState({
             username: response.data.username,
@@ -78,10 +78,10 @@ export default class CheckInHardware extends Component{
 
         console.log(hardware);
 
-        axios.post('http://dry-reaches-42443.herokuapp.com/hardwares/update/'+this.props.match.params.id, hardware)
+        axios.post('http://quiet-lowlands-32326/hardwares/update/'+this.props.match.params.id, hardware)
       .then(res => console.log(res.data));
 
-        axios.post('http://dry-reaches-42443.herokuapp.com/hardwares/update'+this.props.match.params.id, hardware).then(res => console.log(res.data));
+        axios.post('http://quiet-lowlands-32326/hardwares/update'+this.props.match.params.id, hardware).then(res => console.log(res.data));
 
         window.location = '/hardware';
     }
