@@ -41,12 +41,12 @@ const port = process.env.PORT || 5000;
 // add the API endpoint routes so the server can be used to perform CRUD operation
 // load routers from routes files
 const projectsRouter = require('./routes/projects');
-//const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/users');
 const hardwaresRouter = require('./routes/hardwares');
 
 //routers added as middleware
 app.use('/projects', projectsRouter);
-//app.use('/users', usersRouter);
+app.use('/users', usersRouter);
 app.use('/hardwares', hardwaresRouter);
 
 app.listen(port, () => {
