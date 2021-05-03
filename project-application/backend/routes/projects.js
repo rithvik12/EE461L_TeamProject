@@ -1,13 +1,14 @@
 const router = require('express').Router();
 let Project = require('../models/project.model');
 
-
+//first endpoint handles incoming HTTP GET requests on the /projects/ URL path
 router.route('/').get((req, res) => {
   Project.find()
     .then(projects => res.json(projects))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//second endpoint handles incoming HTTP POST requests on the /projects/add/ URL path
 router.route('/add').post((req, res) => {
   const username = req.body.username;
   const description = req.body.description;

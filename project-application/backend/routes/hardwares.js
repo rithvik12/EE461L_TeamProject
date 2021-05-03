@@ -1,12 +1,14 @@
 const router = require('express').Router();
 let Hardware = require('../models/hardware.model');
 
+//first endpoint handles incoming HTTP GET requests on the /hardwares/ URL path
 router.route('/').get((reg, res) => {
     Hardware.find()
     .then(hardwares => res.json(hardwares))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+//second endpoint handles incoming HTTP POST requests on the /hardwares/add/ URL path
 router.route('/add').post((req, res) => {
     const username = req.body.username;
     const description = req.body.description;
@@ -29,18 +31,21 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+///:id GET endpoint returns a hardware item given an id
 router.route('/:id').get((req, res) => {
     Hardware.findById(req.params.id)
       .then(hardware => res.json(hardware))
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
+///:id DELETE endpoint deletes a hardware item given an id
 router.route('/:id').delete((req, res) => {
     Hardware.findByIdAndDelete(req.params.id)
       .then(() => res.json('Hardware deleted.'))
       .catch(err => res.status(400).json('Error: ' + err));
   });
 
+///update/:id POST endpoint updates an existing hardware item
 router.route('/update/:id').post((req, res) => {
     Hardware.findById(req.params.id)
     .then(hardware => {

@@ -8,6 +8,8 @@ export default class CreateUser extends Component {
         // new stuff
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+
+        //set the initial state of the component by assigning an object to this.state
         this.state = {
             username: '',
             // new stuff
@@ -15,6 +17,7 @@ export default class CreateUser extends Component {
           };
       }
 
+      //add the methods to change the username and submit the form
       onChangeUsername(e) {
         this.setState({
           username: e.target.value
@@ -32,9 +35,13 @@ export default class CreateUser extends Component {
           username: this.state.username,
           password: this.state.password,
         };
+       
         console.log(newUser);
 
-        // sends HTTP POST request to backend endpoint as listed below
+        //connect our code to the backend
+        //causing our frontend to send HTTP request to the server endpoints on the backend
+        //use the Axios library to send HTTP requests to our backend
+        //axios.post method sends HTTP POST request to backend endpoint as listed below
         // endpoint is expecting a JSON object in the request body so 'newUser' object is passed as second argument
         axios.post('https://dry-reaches-42443.herokuapp.com/users/add', newUser).then(res => console.log(res.data));
 

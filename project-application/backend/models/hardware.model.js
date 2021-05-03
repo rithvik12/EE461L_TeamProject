@@ -1,7 +1,10 @@
+//database schema for hardware model
+
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
+//hardware schema fields and validations
 const hardwareSchema = new Schema({
     username: {type: String},
     description: {type: String},

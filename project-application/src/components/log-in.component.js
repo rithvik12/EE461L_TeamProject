@@ -9,6 +9,8 @@ export default class LoginUser extends Component {
         // new stuff
         this.onChangePassword = this.onChangePassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+
+        //set the initial state of the component by assigning an object to this.state
         this.state = {
             username: '',
             // new stuff

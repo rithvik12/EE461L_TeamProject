@@ -22,6 +22,8 @@ const Hardware = props => (
 export default class ViewHardware extends Component {
     constructor(props) {
         super(props);
+
+        //set the initial state of the component by assigning an object to this.state
         this.state = {hardwares: []};
     }
 

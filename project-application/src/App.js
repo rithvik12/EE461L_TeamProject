@@ -16,6 +16,9 @@ import CheckIn from "./components/checkin-hardware.component";
 
 //edit to route to edit-hardware component when complete
 
+//<Route> element for each route of the application
+//path attribute sets the url path
+//component is the code that will be loaded when a user goes to that path
 function App() {
   return (
     <Router>

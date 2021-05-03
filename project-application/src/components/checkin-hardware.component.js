@@ -6,13 +6,14 @@ export default class CheckInHardware extends Component{
         super(props);
 
         //testing a push
+        //make sure 'this' works properly in our methods, we need to bind the methods to 'this'
         this.onChangeHW1Available = this.onChangeHW1Available.bind(this);
         this.onChangeHW2Available = this.onChangeHW2Available.bind(this);
         this.onChangeHW1CheckedIn = this.onChangeHW1CheckedIn.bind(this);
         this.onChangeHW2CheckedIn = this.onChangeHW2CheckedIn.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
-
+        //set the initial state of the component by assigning an object to this.state
         this.state = {
             username:'',
             description:'',
@@ -22,6 +23,10 @@ export default class CheckInHardware extends Component{
             hw2checkedIn: 0,
         }
     }
+
+    //user list will come directly from the MongoDB database
+    //select the user associated with the exercise from a drop down list
+    //componentDidMount() method is part of the React life cycle and is invoked immediately after a component is mounted
     componentDidMount() {
 
         axios.get('https://dry-reaches-42443.herokuapp.com/hardwares/'+this.props.match.params.id)
@@ -40,6 +45,7 @@ export default class CheckInHardware extends Component{
       })
     }
 
+    //add methods to update the state properties
     onChangeHW1Available(e) {
         this.setState({
             hw1available: e.target.value
@@ -64,6 +70,7 @@ export default class CheckInHardware extends Component{
         });
     }
 
+    //handle the submit event of the form
     onSubmit(e) {
         e.preventDefault();
 
@@ -83,6 +90,7 @@ export default class CheckInHardware extends Component{
 
         axios.post('https://dry-reaches-42443.herokuapp.com/hardwares/update'+this.props.match.params.id, hardware).then(res => console.log(res.data));
 
+        //location is updated so the user is taken back to the hardware page
         window.location = '/hardware';
     }
 

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+//projectlist component is implemented as a functional React component
+//what makes this type of component different from a class component is the lack of state and lifecycle methods
+//use a functional component instead of a class componen when all you need is to accept props and return JSX
 const Project = props => (
     <tr>
       <td>{props.project.username}</td>
@@ -19,11 +22,14 @@ export default class ProjectsList extends Component {
     constructor(props) {
         super(props);
         this.deleteProject = this.deleteProject.bind(this);
+
+        //set the initial state of the component by assigning an object to this.state
         this.state = {projects: []};
       }
 
+      //Get the list of projects from the database
       componentDidMount() {
-          // accesses the /projects endpoint
+          // axios.get accesses the /projects endpoint
         axios.get('https://dry-reaches-42443.herokuapp.com/projects/')
          .then(response => {
            this.setState({ projects: response.data });
@@ -33,9 +39,12 @@ export default class ProjectsList extends Component {
          })
       }
 
+      //allow users to delete projects
       deleteProject(id) {
+        //use the axios.delete method
         axios.delete('https://dry-reaches-42443.herokuapp.com/projects/'+id)
           .then(res => console.log(res.data));
+        //update the state of projects and filter out the project that was deleted
         this.setState({
           projects: this.state.projects.filter(el => el._id !== id)
         })
@@ -43,6 +52,7 @@ export default class ProjectsList extends Component {
       
 
       // iterates through list of project items by using map function
+      // returns the rows of the project table
       projectList() {
         return this.state.projects.map(currentproject => {
           return <Project project={currentproject} deleteProject={this.deleteProject} key={currentproject._id}/>;
