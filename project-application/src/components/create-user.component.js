@@ -26,7 +26,7 @@ export default class CreateUser extends Component {
             password: e.target.value
         });
     }
-    onSubmit(e) {
+    async onSubmit(e) {
         e.preventDefault();
         const newUser = {
           username: this.state.username,
@@ -36,12 +36,14 @@ export default class CreateUser extends Component {
 
         // sends HTTP POST request to backend endpoint as listed below
         // endpoint is expecting a JSON object in the request body so 'newUser' object is passed as second argument
-        axios.post('https://dry-reaches-42443.herokuapp.com/users/add', newUser).then(res => console.log(res.data));
-
-        this.setState({
+        await axios.post('https://dry-reaches-42443.herokuapp.com/users/add',  newUser ).then(res => {
+          console.log(res.data) 
+          this.setState({
             username: '',
             password: ''
-          })
+        }) });
+
+        
 
           window.location = '/';
       }

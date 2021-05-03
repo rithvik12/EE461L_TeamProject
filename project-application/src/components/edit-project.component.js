@@ -70,7 +70,7 @@ export default class EditProject extends Component {
     });
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
     e.preventDefault();
 
     const project = {
@@ -82,7 +82,7 @@ export default class EditProject extends Component {
 
     console.log(project);
 
-    axios.post('https://dry-reaches-42443.herokuapp.com/projects/update/'+this.props.match.params.id, project)
+    await axios.post('https://dry-reaches-42443.herokuapp.com/projects/update/'+this.props.match.params.id, project)
       .then(res => console.log(res.data));
 
     window.location = '/';

@@ -64,7 +64,7 @@ export default class CheckInHardware extends Component{
         });
     }
 
-    onSubmit(e) {
+    async onSubmit(e) {
         e.preventDefault();
 
         const hardware = {
@@ -78,10 +78,10 @@ export default class CheckInHardware extends Component{
 
         console.log(hardware);
 
-        axios.post('https://dry-reaches-42443.herokuapp.com/hardwares/update/'+this.props.match.params.id, hardware)
+        await axios.post('https://dry-reaches-42443.herokuapp.com/hardwares/update/'+this.props.match.params.id, hardware)
       .then(res => console.log(res.data));
 
-        axios.post('https://dry-reaches-42443.herokuapp.com/hardwares/update'+this.props.match.params.id, hardware).then(res => console.log(res.data));
+        //axios.post('https://dry-reaches-42443.herokuapp.com/hardwares/update'+this.props.match.params.id, hardware).then(res => console.log(res.data));
 
         window.location = '/hardware';
     }

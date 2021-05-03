@@ -101,7 +101,7 @@ export default class CheckoutHardware extends Component{
         });
     }
 
-    onSubmit(e) {
+    async onSubmit(e) {
         e.preventDefault();
 
         //let hw1available = this.state.hw1available-this.state.hw1checkedOut;
@@ -120,10 +120,10 @@ export default class CheckoutHardware extends Component{
 
         //axios.post('http://localhost:5000/projects/add', hardware).then(res => console.log(res.data));
 
-        axios.post('https://dry-reaches-42443.herokuapp.com/hardwares/update/'+this.props.match.params.id, hardware)
+        await axios.post('https://dry-reaches-42443.herokuapp.com/hardwares/update/'+this.props.match.params.id, hardware)
       .then(res => console.log(res.data));
 
-        axios.post('https://dry-reaches-42443.herokuapp.com/hardwares/update'+this.props.match.params.id, hardware).then(res => console.log(res.data));
+        //await axios.post('https://dry-reaches-42443.herokuapp.com/hardwares/update'+this.props.match.params.id, hardware).then(res => console.log(res.data));
 
         window.location = '/hardware';
     }

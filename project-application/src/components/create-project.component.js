@@ -61,7 +61,7 @@ export default class CreateProject extends Component {
     });
   }
 
-  onSubmit(e) {
+  async onSubmit(e) {
       // prevents default HTML form submit behavior from taking place
     e.preventDefault();
 
@@ -79,8 +79,8 @@ export default class CreateProject extends Component {
 
     console.log(project);
 
-    axios.post('https://dry-reaches-42443.herokuapp.com/projects/add', project).then(res => console.log(res.data));
-    axios.post('https://dry-reaches-42443.herokuapp.com/hardwares/add', hardware).then(res => console.log(res.data));
+    await axios.post('https://dry-reaches-42443.herokuapp.com/projects/add', project).then(res => console.log(res.data));
+    await axios.post('https://dry-reaches-42443.herokuapp.com/hardwares/add', hardware).then(res => console.log(res.data));
 
     window.location = '/';
   }
