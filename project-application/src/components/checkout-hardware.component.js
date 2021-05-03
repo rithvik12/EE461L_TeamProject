@@ -12,6 +12,7 @@ export default class CheckoutHardware extends Component{
         this.onChangeHW2CheckedOut = this.onChangeHW2CheckedOut.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
+        //set the initial state of the component by assigning an object to this.state
         this.state = {
             username:'',
             description:'',

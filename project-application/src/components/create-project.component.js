@@ -7,12 +7,14 @@ export default class CreateProject extends Component {
   constructor(props) {
     super(props);
 
+    
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeProjectID = this.onChangeProjectID.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
+    ////set the initial state of the component by assigning an object to this.state
     this.state = {
       username: '',
       description: '',
@@ -22,6 +24,8 @@ export default class CreateProject extends Component {
     }
   }
 
+  //get the list of users from the database to add to the users dropdown menu in the form
+  //data returned from the database to set the state of users and username
   componentDidMount() {
     axios.get('https://dry-reaches-42443.herokuapp.com/users/')
   .then(response => {

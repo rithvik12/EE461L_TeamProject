@@ -13,6 +13,7 @@ export default class EditProject extends Component {
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
+    ////set the initial state of the component by assigning an object to this.state
     this.state = {
       username: '',
       description: '',
@@ -22,8 +23,9 @@ export default class EditProject extends Component {
     }
   }
 
+  //use axios.get to get the current project from the database and load the data into the state variables
   componentDidMount() {
-      // gets current project from database and loads data into state variables
+    
     axios.get('https://dry-reaches-42443.herokuapp.com/projects/'+this.props.match.params.id)
       .then(response => {
         this.setState({

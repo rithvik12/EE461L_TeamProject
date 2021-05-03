@@ -1,15 +1,26 @@
+//database schema for user model
+
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  username: { type: String, required: true, unique: true, trim: true, minlength: 3},
-  //new stuff
-  password: { type: String, required: true, unique: true, trim: true, minLength: 3},
-}, {
-  timestamps: true,
+//user model fields and validation
+const UserSchema = new Schema({
+  username: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
-const User = mongoose.model('User', userSchema);
+//const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+//export model to access outside file
+module.exports = User = mongoose.model("users", UserSchema);
