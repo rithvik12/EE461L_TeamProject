@@ -107,8 +107,12 @@ The application isn't deployed along with the MongoDB database. There is a funct
 
 ## Scalability
 
-//demonstrate how the app is scalable to add more hardware resources
-//discuuss from perspective of both database and web ui
+* To provide each new project with a certain number of free credits when the project is created, we would need to edit the project model in the backend to contain a field for free credits. Then the project routes file will need a variable to hold the number of free credits we want to add when handling a POST request on the projects/add path.
+* To charge for checkout hardware using these free credits, we will need to edit the hardware model and hardware routes file to add a field for free credits. To pass the free credits value from the projects, we will need to call an axios.get from the /projects path in our backend. From this we can get the free credits and set that into our state in the checkout hardware component. For every hardware checked out, we can take away 1 credit by adding the following logic to our onSubmit function: (updated free credits = free credits - (hardware 1 checked out + hardware 2 checked out).
+* To charge a credit card when the free credit expires, we need to add in the onSubmit of our checkout hardware component a check for when the free credits goes below zero. If it does, then the user will get rerouted to a separate page with payment information input. The leftover amount from the checkout hardware component will get passed over.
+* To increase the number of hardware resources, the hardware model in the backend can be modified to hold more hardware sets. The hardware routes file contains the information to add new hardware sets into the database as well as change the starting amount of hardware sets available.
+* To change the look and feel of the UI, we can edit the render() HTML code which is displayed on each component. Stylistic choiced can be changed in the CSS file.
+
 
 ## Stakeholder Modifications
 
