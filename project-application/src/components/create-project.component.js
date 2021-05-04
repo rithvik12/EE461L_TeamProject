@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/authActions";
 
-export default class CreateProject extends Component {
+class CreateProject extends Component {
   constructor(props) {
     super(props);
 
-    
+
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeProjectID = this.onChangeProjectID.bind(this);
@@ -65,6 +68,11 @@ export default class CreateProject extends Component {
     });
   }
 
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
+
   async onSubmit(e) {
       // prevents default HTML form submit behavior from taking place
     e.preventDefault();
@@ -90,8 +98,11 @@ export default class CreateProject extends Component {
   }
 
   render() {
+    const { user } = this.props.auth;
     return (
+      
       <div>
+        
         <h3>Create New Project</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
@@ -147,3 +158,16 @@ export default class CreateProject extends Component {
     )
   }
 }
+
+CreateProject.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(
+  CreateProject);

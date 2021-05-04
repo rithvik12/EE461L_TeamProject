@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/authActions";
 
 //projectlist component is implemented as a functional React component
 //what makes this type of component different from a class component is the lack of state and lifecycle methods
@@ -18,7 +21,7 @@ const Project = props => (
     </tr>
   )
 
-export default class ProjectsList extends Component {
+  class ProjectsList extends Component {
     constructor(props) {
         super(props);
         this.deleteProject = this.deleteProject.bind(this);
@@ -26,6 +29,11 @@ export default class ProjectsList extends Component {
         //set the initial state of the component by assigning an object to this.state
         this.state = {projects: []};
       }
+
+      // onLogoutClick = e => {
+      //   e.preventDefault();
+      //   this.props.logoutUser();
+      // };
 
       //Get the list of projects from the database
       componentDidMount() {
@@ -59,9 +67,27 @@ export default class ProjectsList extends Component {
         })
       }
 
+  //add  <b>Hey there,</b> {user.name.split(" ")[0]} 
   render() {
+    const { user } = this.props.auth;
     return (
       <div>
+        <div className="row">
+          {/* <div className="col s12 center-align">
+            <button
+              style={{
+                width: "150px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                marginTop: "1rem"
+              }}
+              onClick={this.onLogoutClick}
+              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            >
+              Logout
+            </button>
+          </div> */}
+        </div>
         <hgroup>
           <h3>Existing Projects</h3>
           <p>
@@ -86,3 +112,15 @@ export default class ProjectsList extends Component {
     )
   }
 }
+
+ProjectsList.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(ProjectsList);
