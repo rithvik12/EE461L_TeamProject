@@ -82,8 +82,8 @@ We will be using Heroku as a host for our proof-of-concept application.
 
 ## Deployed App
 
-URL to deployed front-end application https://morning-gorge-01668.herokuapp.com/
-URL to deployed back-end server https://dry-reaches-42443.herokuapp.com/
+* URL to deployed front-end application https://morning-gorge-01668.herokuapp.com/
+* URL to deployed back-end server https://dry-reaches-42443.herokuapp.com/
 
 ## User Instructions
 The landing page for this app is the projects page. Here are some features to note about our app:
