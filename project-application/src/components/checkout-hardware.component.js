@@ -90,7 +90,6 @@ export default class CheckoutHardware extends Component{
     }
 
     onChangeHW1CheckedOut(e) {
-
         this.setState({
             hw1checkedOut: e.target.value,
         });
@@ -107,6 +106,14 @@ export default class CheckoutHardware extends Component{
 
         //let hw1available = this.state.hw1available-this.state.hw1checkedOut;
         //let hw2available = this.state.hw2available-this.state.hw2checkedOut;
+
+        if(this.state.hw1checkedOut>this.state.hw1available){
+            this.state.hw1checkedOut=this.state.hw1available;
+        }
+
+        if(this.state.hw2checkedOut>this.state.hw2available){
+            this.state.hw2checkedOut=this.state.hw2available;
+        }
 
         const hardware = {
             username: this.state.username,
