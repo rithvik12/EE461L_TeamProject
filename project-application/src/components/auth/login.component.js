@@ -87,15 +87,15 @@ class Login extends Component{
             <label>Username: </label>
             <input  
                 required
-                //className="form-control"
+                className="form-control"
                 value={this.state.username}
                 onChange={this.onChangeUsername}
                 id="username"
                 type="username"
                 error={errors.username}
-                className={classnames("", {
-                  invalid: errors.username || errors.usernamenotfound
-                })}
+                // className={classnames("", {
+                //   invalid: errors.username || errors.usernamenotfound
+                // })}
                 />
                 
           </div>
@@ -103,15 +103,15 @@ class Login extends Component{
             <label>Password: </label>
             <input  
                 required
-                //className="form-control"
+                className="form-control"
                 value={this.state.password}
                 onChange={this.onChangePassword}
                 id="password"
                 type="password"
                 error={errors.password}
-                className={classnames("", {
-                  invalid: errors.password || errors.passwordincorrect
-                })}
+                // className={classnames("", {
+                //   invalid: errors.password || errors.passwordincorrect
+                // })}
                 />
           </div>
           <div class="row">

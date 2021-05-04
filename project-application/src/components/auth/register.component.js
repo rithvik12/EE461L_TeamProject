@@ -88,30 +88,30 @@ class Register extends Component {
             <input  
                 type="username"
                 required
-                //className="form-control"
+                className="form-control"
                 value={this.state.username}
                 onChange={this.onChangeUsername}
                 error={errors.username}
                 id="username"
                 
-                className={classnames("", {
-                  invalid: errors.username
-                })}
+                // className={classnames("", {
+                //   invalid: errors.username
+                // })}
                 />
           </div>
           <div className="form-group">
             <label>Password: </label>
             <input  
                 required
-                //className="form-control"
+                className="form-control"
                 value={this.state.password}
                 onChange={this.onChangePassword}
                 error={errors.password}
                 id="password"
                 type="password"
-                className={classnames("", {
-                  invalid: errors.password
-                })}
+                // className={classnames("", {
+                //   invalid: errors.password
+                // })}
                 />
           </div>
           <div className="form-group">
