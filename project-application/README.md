@@ -72,10 +72,10 @@ We will split up our team into two pairs. Cathy and Chloe will work on the user 
 
 We will be using the MERN stack which consists of:
 
-MongoDB : NoSQL Document-oriented database to store app data
-Express.js : Node.js web framework, used to build backend
-React.js : Client-side JavaScript framework, used to build UI components
-Node.js : JavaScript runtime environment to run code on server outside browser
+* MongoDB : NoSQL Document-oriented database to store app data
+* Express.js : Node.js web framework, used to build backend
+* React.js : Client-side JavaScript framework, used to build UI components
+* Node.js : JavaScript runtime environment to run code on server outside browser
 
 We will be using PhysioNet.org to get datasets from.
 We will be using Heroku as a host for our proof-of-concept application.
