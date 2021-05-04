@@ -22,26 +22,26 @@ In this project, we will implement a Proof-of-Concept (PoC) for a web applicatio
 
 This PoC web application will satisfy the following stakeholder needs and system requirements:
 
-SN0: Generally accepted quality and reliability metrics
-SN1: Create and maintain secure user accounts and projects on the system 
-SN2: View the status of all hardware resources in the system
-SN3: Request available hardware resources and datasets from published sources
-SN4: Once approved, checkout and manage these resources
-SN5: Check-in the resources and get billing information
-SN6: Deliver PoC within budget and schedule constraints, with features for efficient progression to the deployed app
+* SN0: Generally accepted quality and reliability metrics
+* SN1: Create and maintain secure user accounts and projects on the system 
+* SN2: View the status of all hardware resources in the system
+* SN3: Request available hardware resources and datasets from published sources
+* SN4: Once approved, checkout and manage these resources
+* SN5: Check-in the resources and get billing information
+* SN6: Deliver PoC within budget and schedule constraints, with features for efficient progression to the deployed app
 
 ## System Requirements
 
-SR1: PoC shall be delivered within budget and schedule constraint, with periodic updates to stakeholders
-SR2: PoC App shall have a front-end web application that allows users to enter inputs and views outputs
-SR3: PoC App shall have a mechanism for encrypting user-id and password
-SR4: PoC App shall have a mechanism for creating new project or accessing existing projects
-SR5: PoC App shall have a database for maintaining user login credentials, project codes, project details, resource details
-SR6: PoC App shall be hosted on cloud for easy accessibility
-SR7: PoC App shall work reliably at all times
-SR8: PoC shall provide capabilities for efficient progression to a deployed app
-SR9: PoC App shall have a mechanism for requesting data from published data sources
-SR10 PoC App shall a mechanism for retrieving information from the database
+* SR1: PoC shall be delivered within budget and schedule constraint, with periodic updates to stakeholders
+* SR2: PoC App shall have a front-end web application that allows users to enter inputs and views outputs
+* SR3: PoC App shall have a mechanism for encrypting user-id and password
+* SR4: PoC App shall have a mechanism for creating new project or accessing existing projects
+* SR5: PoC App shall have a database for maintaining user login credentials, project codes, project details, resource details
+* SR6: PoC App shall be hosted on cloud for easy accessibility
+* SR7: PoC App shall work reliably at all times
+* SR8: PoC shall provide capabilities for efficient progression to a deployed app
+* SR9: PoC App shall have a mechanism for requesting data from published data sources
+* SR10 PoC App shall a mechanism for retrieving information from the database
 
 ## Team Roles
 
@@ -49,24 +49,24 @@ We will split up our team into two pairs. Cathy and Chloe will work on the user 
 
 ## User Management Features
 
-1.A sign-in area where users can sign in by providing their userid and password. If user clicks on New User, display a pop-up that allows them to enter a new userid and password.
-2.An area where users can create new project, by providing project name, description, and projectID.
-3.An area where users can choose to login to existing projects.
-4.A database where you can save user information and project information.
-5.An API to access information stored in the database.
-6.Security features to encrypt the userid and password.
+* 1.A sign-in area where users can sign in by providing their userid and password. If user clicks on New User, display a pop-up that allows them to enter a new userid and password.
+* 2.An area where users can create new project, by providing project name, description, and projectID.
+* 3.An area where users can choose to login to existing projects.
+* 4.A database where you can save user information and project information.
+* 5.An API to access information stored in the database.
+* 6.Security features to encrypt the userid and password.
 
 ## Resource Management Features
 
-1.A display area which shows the capacity of HWSet1 and HWSet2.
-2.A display area which shows the availability of HWSet1 and HWSet2.
-3.A database where the HW information can be stored and can be retrieved from.
-4.A display area which shows how many units of HWSet1 and HWSet2 user wants to checkout and later checkin.
+* 1.A display area which shows the capacity of HWSet1 and HWSet2.
+* 2.A display area which shows the availability of HWSet1 and HWSet2.
+* 3.A database where the HW information can be stored and can be retrieved from.
+* 4.A display area which shows how many units of HWSet1 and HWSet2 user wants to checkout and later checkin.
 
 ## Data Access Features
 
-1.A display area (text) which shows a bulleted list of datasets available on the public dataset. Please note that physionet.org is provided as a suggested dataset. You can either use this dataset and/or recommend other datasets.
-2.An option to download one of the datasets as a zip file.
+* 1.A display area (text) which shows a bulleted list of datasets available on the public dataset. Please note that physionet.org is provided as a suggested dataset. You can either use this dataset and/or recommend other datasets.
+* 2.An option to download one of the datasets as a zip file.
 
 ## Tools and Approach
 
