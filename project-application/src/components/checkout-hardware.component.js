@@ -147,7 +147,7 @@ export default class CheckoutHardware extends Component{
                             required
                             className="form-control"
                             value={this.state.hw1available}
-                            onChange={this.onChangeHW1Available}
+                            // onChange={this.onChangeHW1Available}
                             readonly
                             />
                     </div>
@@ -167,7 +167,7 @@ export default class CheckoutHardware extends Component{
                             required
                             className="form-control"
                             value={this.state.hw2available}
-                            onChange={this.onChangeHW2Available}
+                            // onChange={this.onChangeHW2Available}
                             readonly
                             />
                     </div>

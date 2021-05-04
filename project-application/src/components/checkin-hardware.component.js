@@ -111,7 +111,8 @@ export default class CheckInHardware extends Component{
                           required
                           className="form-control"
                           value={this.state.hw1available}
-                          onChange={this.onChangeHW1Available}
+                          //onChange={this.onChangeHW1Available}
+                          readonly
                           />
                     </div>
                     <div className="form-group">
@@ -128,7 +129,8 @@ export default class CheckInHardware extends Component{
                           required
                           className="form-control"
                           value={this.state.hw2available}
-                          onChange={this.onChangeHW2Available}
+                          //onChange={this.onChangeHW2Available}
+                          readonly
                           />
                     </div>
                     <div className="form-group">
