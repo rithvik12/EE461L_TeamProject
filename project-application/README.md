@@ -11,7 +11,9 @@
 * [User Instructions](#user-instructions)
 * [Scalability](#scalability)
 * [Stakeholder Modifications](#stakeholder-modifications)
-* [Other Features and Improvements](#other-features-and-improvements)
+* [Future Improvements](#future-improvements)
+* [Issues](#issues)
+* [Testing](#testing)
 * [Sources](#sources)
 
 ## Introduction
@@ -96,14 +98,6 @@ The Hardware Sets tab takes you to a page where you can check-out/check-in hardw
 Creating a project adds your project to the Hardware Sets page.
 The Datasets tab takes you to a page where you can download zipped dataset files.
 There is a video added in the EE461L_TeamProject directory that shows a step-by-step process of what the fully deployed application would look like.
-Known Issues
-The following are known issues that are still being worked out:
-
-Existing projects are viewable by anyone, logged in or not.
-Clicking the Log In button on the login page reroutes you to the project page whether your credentials were correct or not.
-There is no difference in user experience for users logged in or not.
-Checking out more hardware sets than available is possible.
-The application isn't deployed along with the MongoDB database. There is a functional front end but the database could not be deployed along with it.
 
 ## Scalability
 
@@ -113,22 +107,44 @@ The application isn't deployed along with the MongoDB database. There is a funct
 * To increase the number of hardware resources, the hardware model in the backend can be modified to hold more hardware sets. The hardware routes file contains the information to add new hardware sets into the database as well as change the starting amount of hardware sets available.
 * To change the look and feel of the UI, we can edit the render() HTML code which is displayed on each component. Stylistic choiced can be changed in the CSS file.
 
-
 ## Stakeholder Modifications
 
 Since the styling of the website comes from the Bootstrap template framework, the web UI can be personalized by editing the CSS files. This would include customizing colors, buttons, backfround, text fonts, forms, and other elements. 
 
 The stakeholder can add more text by editing the files for the react components. In the HTML code, the structure of these components can be modified.
 
-## Other Features and Improvements
+## Future Improvements
 
-A billing information feature was not implemented, but can be by keeping track of the user's checked-out hardware resources. A credit amount can be associated with this and then shown to the user. 
-
-The login/register feature can be improved upon by implementing:
+* A billing information feature by keeping track of the user's checked-out hardware resource (A credit amount can be associated with this and then shown to the user)
 * Protected routes (pages only certain users can access based on their authentication)
-* Authentication tokens to track logged in user sessions
+* Authentication tokens to track logged in user sessions (Tried using passport + jsonwebtokens)
 * Keep a user logged in when they refresh or leave the page 
 * Display errors from our backend in our login/register forms (input validation, incorrect usernames/passwords)
+* Automated Testing for Backend/Mocha and Selenium Frameworks for automated testing with front end.(can potentially write scripts that will make post requests to the various collections in our databases (like the user, project, update, etc.))
+* Tried using react redux for global state management
+* Encryption for password
+* Displau error messages on forms (user id and password validation, entering unique user id)
+* Forget password component
+* Users can only access/edit their own projects that they create
+* Global amount of hardware sets that all users can access
+* Web scraper on datasets using puppeteer (This would make the dataset list modular and the table would be dynamic)
+
+## Issues
+
+* Existing projects are viewable by anyone, logged in or not.
+* Clicking the Log In button on the login page reroutes you to the project page whether your credentials were correct or not.
+* There is no difference in user experience for users logged in or not.
+* Log in feature does not work
+* Tried to privatize routes but has issues with the authentication methods we were using (Tested the API using postman to send requests to the register and login paths and that worked in that it encrypted the password under the register route and succesfully recrypted it on the log out route)
+* Got up to the point where we were able to privatize certain routes as in if you tried to access it you were redirected to the login page, but we were not able to get past the login page
+
+## Testing
+
+We tested a variety of edge cases, like checking in more than what you have, check out more than available, checking in negative amounts, unique username, the fields are required and must be filled in before moving to next page.
+
+We did some user testing where the users were people who did not know what the app was about and were just asked to navigate around it and play with it. Only a few had some questions on how to operate certain tasks, this alludes to the overall intuitiveness of our interface and can potentially expand the reach of the customer base. 
+
+We also used Insomnia/Postman for API testing.
 
 ## Sources
 To set up the foundation of our app using the MERN stack:
