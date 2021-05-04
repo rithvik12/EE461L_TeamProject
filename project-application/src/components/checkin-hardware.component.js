@@ -73,6 +73,13 @@ export default class CheckInHardware extends Component{
     async onSubmit(e) {
         e.preventDefault();
 
+        if(100<this.state.hw1checkedIn+this.state.hw1available){
+            this.state.hw1checkedIn=100-this.state.hw1available;
+        }
+
+        if(100<this.state.hw2checkedIn+this.state.hw2available){
+            this.state.hw2checkedIn=100-this.state.hw2available;
+        }
         const hardware = {
             username: this.state.username,
             description: this.state.description,
@@ -125,7 +132,7 @@ export default class CheckInHardware extends Component{
                           />
                     </div>
                     <div className="form-group">
-                      <label>HW2 to Check Out: <input type="number"
+                      <label>HW2 to Check In: <input type="number"
                           required
                           className="form-control"
                           value={this.state.hw2checkedIn}
